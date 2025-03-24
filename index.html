@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Średnia ocen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            padding: 20px;
+        }
+        button {
+            padding: 10px;
+            margin: 10px;
+            background: #dc3545;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #c82333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Oblicz średnią ocen</h2>
+        <button onclick="sredniaOcen()">Oblicz</button>
+    </div>
+
+    <script>
+        function sredniaOcen() {
+            var liczbaOcen;
+            var suma = 0;
+
+            while (true) {
+                liczbaOcen = parseInt(prompt("Podaj liczbę ocen:"));
+                if (liczbaOcen > 0) break;
+                document.write("Błąd: Liczba ocen musi być większa od 0!<br>");
+            }
+
+            for (var i = 1; i <= liczbaOcen; i++) {
+                var ocena;
+                while (true) {
+                    ocena = parseFloat(prompt("Podaj ocenę " + i + ":"));
+                    if (ocena >= 1 && ocena <= 6) break;
+                    document.write("Błąd: Ocena musi być w przedziale 1-6!<br>");
+                }
+                suma += ocena;
+            }
+
+            let srednia = suma / liczbaOcen;
+            document.write("<h2>Średnia ocen wynosi: " + srednia.toFixed(2) + "</h2>");
+        }
+    </script>
+
+</body>
+</html>
